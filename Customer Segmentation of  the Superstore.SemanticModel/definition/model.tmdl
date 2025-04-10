@@ -1,0 +1,29 @@
+model Model
+	culture: en-CA
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Orders","People","Returns","Key Measures"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.141.1451.0 (25.03)+5007b75f0f7edbed506e31fcb76584cd6d711788
+
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
+
+ref table Orders
+ref table DateTableTemplate_a2becfc8-21e3-4b63-ad39-848179989cb8
+ref table LocalDateTable_60edbaf6-de41-4cf3-a156-7653cb75d62b
+ref table LocalDateTable_76d8368b-f020-45ea-bc2d-99f7d95c43ec
+ref table People
+ref table Returns
+ref table 'Key Measures'
+
+ref role 'California (Highest profit)'
+ref role 'Pennsylvania (Lowest profit)'
+
+ref cultureInfo en-CA
+

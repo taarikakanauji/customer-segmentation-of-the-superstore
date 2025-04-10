@@ -1,0 +1,48 @@
+table 'Key Measures'
+	lineageTag: dbe637f9-0ae8-43f0-b108-cb5ac22fd02b
+
+	measure 'Min Profit' = MIN(Orders[Profit])
+		formatString: \$#,0.000;(\$#,0.000);\$#,0.000
+		lineageTag: aecdf357-4cd6-4abb-b032-bff678c35d5c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'No of Profits(South)' = CALCULATE(COUNTROWS(Orders), Orders[Region] = "South")
+		formatString: 0
+		lineageTag: 05dc661f-7a03-4012-9661-836fa809944e
+
+	measure 'Total Profit (East)' = CALCULATE(SUM(Orders[Profit]), Orders[Region] = "East")
+		lineageTag: dc759828-5460-4da2-ac83-95bcf75171da
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg sales' = AVERAGE(Orders[Sales])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 55c9c279-0c6d-4d89-adb1-13e7f1e740c3
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Max Profit' = MAX(Orders[Profit])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2b8e0831-2259-4739-b760-8ba5727f2fd3
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total profit' = SUM(Orders[Profit])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 8b373589-d68e-4cd6-aefb-685e78b0baa5
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'Key Measures' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

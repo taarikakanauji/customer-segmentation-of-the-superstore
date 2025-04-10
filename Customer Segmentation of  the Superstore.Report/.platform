@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Customer Segmentation of  the Superstore"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c4acdabd-07bc-4683-a487-ebc6a4a48276"
+  }
+}

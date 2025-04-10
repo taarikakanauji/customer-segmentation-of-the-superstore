@@ -1,0 +1,20 @@
+relationship 68949008-1661-445f-b9a7-f9b97101b281
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Orders.'Order Date'
+	toColumn: LocalDateTable_60edbaf6-de41-4cf3-a156-7653cb75d62b.Date
+
+relationship 9791d1d2-2a95-4880-8d56-fe0142bdf24d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Orders.'Ship Date'
+	toColumn: LocalDateTable_76d8368b-f020-45ea-bc2d-99f7d95c43ec.Date
+
+relationship 66191b2a-63c3-8962-a0c2-4c3b991a6801
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Orders.'Customer Name'
+	toColumn: People.Person
+
+relationship cefd76b9-dc03-e2f5-38f6-91fdc164e3a5
+	fromColumn: Orders.'Order ID'
+	toColumn: Returns.'Order ID'
+

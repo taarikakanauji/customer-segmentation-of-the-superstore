@@ -1,0 +1,7 @@
+role 'California (Highest profit)'
+	modelPermission: read
+
+	tablePermission Orders = [State] == "California"
+
+	annotation PBI_Id = 0b6010fa86bc4827bd587c468dea499e
+
