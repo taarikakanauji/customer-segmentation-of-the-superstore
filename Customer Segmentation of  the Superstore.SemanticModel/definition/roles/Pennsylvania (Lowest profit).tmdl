@@ -1,0 +1,7 @@
+role 'Pennsylvania (Lowest profit)'
+	modelPermission: read
+
+	tablePermission Orders = [State] == "Pennsylvania"
+
+	annotation PBI_Id = 30f2c2746c9d481e80f9b5c34718ce44
+
